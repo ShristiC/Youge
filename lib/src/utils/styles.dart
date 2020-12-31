@@ -41,6 +41,11 @@ class ThemeStyle {
     colors: [yellow, pink],
   );
 
+  static final backgroundDecoration = BoxDecoration(
+    gradient: linGradient,
+    boxShadow: [BoxShadow(blurRadius: 3.0, color: blue, offset: Offset(1.0, 1.0))] 
+  );
+
   // LOGO Title Font
   static final baseLogoTitle = const TextStyle(fontFamily: 'Lobster Two');
 
@@ -90,6 +95,25 @@ class ThemeStyle {
     ],
   );
 
+  static final logoImage = Container(
+    width: 200,
+    height: 200,
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      image: DecorationImage(
+        image: AssetImage(Constants.LOGO_PATH),
+      ),
+      // border: Border.all(color: ThemeStyle.darkPurple, width: 2),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.white, 
+          blurRadius: 5.0,
+          offset: Offset(0.5,0.5)
+        ),
+      ]
+    ),
+  );
+
   // regular fonts
   static final baseFont = TextStyle(fontFamily: 'Lobster_Two');
 
@@ -100,12 +124,17 @@ class ThemeStyle {
     letterSpacing: 1.0,
   );
 
-  static final largeLabel = appBarTitle.copyWith(fontSize: 36);
+  static final largeLabel = appBarTitle.copyWith(
+    fontSize: 36,
+    shadows: [Shadow(color: darkBlue, offset: Offset(0.5,0.5))],
+  );
 
-  static final subtitleLabel = appBarTitle.copyWith(fontSize: 24);
+  static final subtitleLabel = largeLabel.copyWith(fontSize: 24);
 
-  static final mainLabel = appBarTitle.copyWith(fontSize: 20);
+  static final mainLabel = largeLabel.copyWith(fontSize: 20, letterSpacing: .5);
 
-  static final searchLabel = mainLabel.copyWith(fontSize: 20, fontWeight: FontWeight.w100);
+  static final miniLabel = mainLabel.copyWith(fontSize: 16, fontWeight: FontWeight.w600);
+
+  static final searchLabel = largeLabel.copyWith(fontSize: 20, fontWeight: FontWeight.w100);
 
 }

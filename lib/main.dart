@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:youge/pages/SplashScreen.dart';
+import './pages/LoginScreen.dart';
 
 // import 'src/utils/constants.dart';
 void main() {
@@ -13,16 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      // home: Scaffold(
-      //   appBar: AppBar(
-      //     title: Text(Constants.APP_NAME),
-      //     centerTitle: true,
-      //   ),
-      //   body: Center(
-      //     child: Text(" This is a place holder"),
-      //   ),
-      // ),
       home: SplashScreen(),
+      routes: <String, WidgetBuilder> {
+        '/landingpage' : (BuildContext context) => SplashScreen(),
+        '/login' : (BuildContext context) => Login(),
+      }
     );
   }
 }
